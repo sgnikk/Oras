@@ -1,0 +1,125 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Add this to stack items vertically */
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.clock-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; /* Keep horizontal alignment */
+  padding: 20px; /* Spacing inside the border */
+  border: 5px solid rgba(255, 255, 255, 0.5); /* Add a solid white border with opacity */
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Add a soft glowing effect */
+}
+
+.day-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px;
+  color: gray;
+  font-size: calc(1.5vw + 1vh); /* Scales with screen size */
+}
+
+.day-container div {
+  margin: 5px 0;
+  opacity: 0.4;
+  font-weight: normal;
+}
+
+.day-container div.active {
+  color: white;
+  opacity: 1;
+  font-weight: bold;
+}
+
+.time-container {
+  font-size: calc(10vw + 2vh); /* Main clock size scales dynamically */
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-family: 'Digital-7 Mono', sans-serif;
+  letter-spacing: -0.05em; /* Adjust spacing between characters */
+}
+
+.time-container div {
+  position: relative;
+}
+
+.time-container .hours,
+.time-container .minutes {
+  position: relative;
+}
+
+.time-container .colon {
+  font-size: calc(10vw + 2vh); /* Match the size of the hours and minutes */
+  position: relative;
+  top: 0; /* Perfectly align with hours and minutes */
+  margin: 0 calc(0.2vw); /* Ensure consistent spacing on both sides */
+}
+
+
+.time-container .seconds {
+  font-size: calc(6vw); /* Smaller font for seconds */
+  color: gray;
+  opacity: 0.5; /* Adjust opacity for the seconds */
+  margin-left: calc(0.5vw); /* Space between colon and seconds */
+  position: relative;
+  top: 0; /* Align seconds with main time */
+}
+
+/* Responsive Styling for Smaller Devices */
+@media (max-width: 768px) {
+  .day-container {
+    font-size: calc(2vw + 1vh); /* Adjust day label size for tablets */
+    margin-right: 10px;
+  }
+
+  .time-container {
+    font-size: calc(14vw); /* Larger clock display for smaller screens */
+    letter-spacing: calc(0.1vw); /* Adjust spacing for readability */
+  }
+  h1{
+    font-size: 0.1rem; /* Adjust font size */  
+  }
+  .time-container .seconds {
+    font-size: calc(8vw); /* Adjust seconds size for tablets */
+  }
+}
+
+/* Very Small Devices (Phones) */
+@media (max-width: 480px) {
+  .day-container {
+    font-size: calc(3vw); /* Adjust day label size for phones */
+  }
+
+  .time-container {
+    font-size: calc(18vw); /* Maximize clock display for phones */
+    letter-spacing: calc(0.2vw); /* Maintain spacing between digits */
+  }
+
+  .time-container .seconds {
+    font-size: calc(10vw); /* Adjust seconds size */
+  }
+  h1{
+    font-size: 0.1rem; /* Adjust font size */  
+  }
+}
+
+h1 {
+  margin-top: 20px; /* Space between clock and name */
+  font-size: 1.5rem; /* Adjust font size */
+  text-align: center; /* Center the text */
+  opacity: 0.8; /* Slight opacity for styling */
+}
